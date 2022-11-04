@@ -4,5 +4,5 @@ public class DialogueModel
     public DialogueType type;
     public string message;
     public int idCharacter;
-    public int idNextDialogue;
+    public DialogueModel nextDialogue;
 }

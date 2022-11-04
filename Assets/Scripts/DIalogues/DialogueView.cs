@@ -1,13 +1,15 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class DialogueView : Singleton<DialogueView>, IDialogueView
 {
     private DialogueController _controller;
     [SerializeField] private GameObject viewGO;
-    [SerializeField] private TextMesh messageText; 
+    [SerializeField] private TextMeshProUGUI messageText;
+    [SerializeField] private Button nextBttn;
 
-    void Awake()
+    new void Awake()
     {
         base.Awake();
         _controller = new DialogueController(this);
@@ -15,12 +17,13 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
 
     public void Show(DialogueModel dialogue)
     {
-        Update(dialogue);
+        UpdateDialogue(dialogue);
         viewGO.SetActive(true);
     }
 
     public void Next()
     {
+        Debug.Log("Next Dialogue");
         _controller.Next();
     }
 
@@ -29,8 +32,21 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
         viewGO.SetActive(false);
     }
 
-    public void Update(DialogueModel dialogue)
+    public void UpdateDialogue(DialogueModel dialogue)
     {
         messageText.text = dialogue.message;
+    }
+
+    public void CheckInput()
+    {
+        if(Input.anyKeyDown && viewGO.activeSelf)
+        {
+            Next();
+        }
+    }
+
+    private void Update()
+    {
+        CheckInput();
     }
 }

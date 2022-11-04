@@ -3,5 +3,5 @@
     void Show(DialogueModel dialogue);
     void Hide();
     void Next();
-    void Update(DialogueModel dialogue);
+    void UpdateDialogue(DialogueModel dialogue);
 }
