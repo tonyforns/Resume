@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class DataManager : Singleton<DataManager>
 {
+    new void Awake()
+    {
+        base.Awake();
+    }
 
     public DialogueModel GetDialogue(int id)
     {
