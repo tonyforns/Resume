@@ -11,14 +11,8 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
+    public void LoadNextScene()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        DialogueView.Instance.OnDialogueFinish = null;
     }
 }

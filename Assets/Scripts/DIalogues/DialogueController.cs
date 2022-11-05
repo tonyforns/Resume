@@ -19,8 +19,16 @@
     public void Next()
     {
         currentDialogue = currentDialogue.nextDialogue;
-        _view.UpdateDialogue(currentDialogue);
-    }
+        if (currentDialogue == null)
+        {
+            _view.DialogueFinish();
+            Hide();
+        }
+        else
+        {
+            _view.UpdateDialogue(currentDialogue);
+        }
+    }   
 
     public void Hide()
     {

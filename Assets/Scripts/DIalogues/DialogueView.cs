@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,11 +9,23 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     [SerializeField] private GameObject viewGO;
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private Button nextBttn;
+    public Action OnDialogueFinish;
+
 
     new void Awake()
     {
         base.Awake();
         _controller = new DialogueController(this);
+    }
+
+    public void DialogueFinish()
+    {
+        OnDialogueFinish?.Invoke();
+    }
+
+    public void Show(int id)
+    {
+        _controller.Show(id);
     }
 
     public void Show(DialogueModel dialogue)
