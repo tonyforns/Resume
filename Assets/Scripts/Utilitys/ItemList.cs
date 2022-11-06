@@ -24,4 +24,9 @@ public abstract class ItemList<T> : ScriptableObject
     {
         return Items[index];
     }
+
+    public List<T> List()
+    {
+        return Items;
+    }
 }

@@ -6,12 +6,12 @@
     {
         _view = view;
         DialogueView.Instance.OnDialogueFinish += EndScene;
+        DialogueView.Instance.Hide();
     }
 
     public void StartGame()
     {
-        DialogueModel startGameDialogue = DataManager.Instance.GetStartGameDialogue();
-        DialogueView.Instance.Show(startGameDialogue);
+        DialogueView.Instance.Show(DataManager.Instance.GetStartGameDialogueId());
     }
 
     public void EndScene()

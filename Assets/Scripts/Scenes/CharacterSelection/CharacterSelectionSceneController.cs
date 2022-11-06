@@ -19,6 +19,7 @@ public class CharacterSelectionSceneController : BaseSceneController
         characterList = DataManager.Instance.GetCharacterList();
         characterDialogues = DataManager.Instance.GetCharacterSelectionDialogues();
         DialogueView.Instance.OnDialogueFinish += EvaluateCharacter;
+        _view.UpdateCharacter(characterList.GetElement(0)) ;
     }
 
     private void EvaluateCharacter()
@@ -30,10 +31,11 @@ public class CharacterSelectionSceneController : BaseSceneController
         }
     }
 
-    public void CharacterSelected(int id)
+    public void CharacterSelected()
     {
         int characterDialogue = 0;
         characterDialogues.TryGetValue(CurrentCharacterId, out characterDialogue);
+        Debug.Log(characterDialogue);
         DialogueView.Instance.Show(characterDialogue);
     }
 
