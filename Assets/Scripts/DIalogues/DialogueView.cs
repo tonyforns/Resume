@@ -6,16 +6,26 @@ using UnityEngine.UI;
 public class DialogueView : Singleton<DialogueView>, IDialogueView
 {
     private DialogueController _controller;
-    [SerializeField] private GameObject viewGO;
-    [SerializeField] private TextMeshProUGUI messageText;
-    [SerializeField] private Button nextBttn;
+    [SerializeField] private GameObject _viewGO;
+    [SerializeField] private int layerId = 6;
+    [Header("Character")]
+    [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private Transform _modelParent;
+    [Header("Dialogue")]
+    [SerializeField] private TextMeshProUGUI _messageText;
+    [SerializeField] private Button _nextBttn;
+    
     public Action OnDialogueFinish;
-
 
     new void Awake()
     {
         base.Awake();
         _controller = new DialogueController(this);
+    }
+
+    private void Update()
+    {
+        CheckInput();
     }
 
     public void DialogueFinish()
@@ -28,10 +38,10 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
         _controller.Show(id);
     }
 
-    public void Show(DialogueModel dialogue)
+    public void Show(DialogueModel dialogue, CharacterModel character)
     {
-        UpdateDialogue(dialogue);
-        viewGO.SetActive(true);
+        UpdateDialogue(dialogue, character);
+        _viewGO.SetActive(true);
     }
 
     public void Next()
@@ -42,24 +52,29 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
 
     public void Hide()
     {
-        viewGO.SetActive(false);
+        _viewGO.SetActive(false);
     }
 
-    public void UpdateDialogue(DialogueModel dialogue)
+    public void UpdateDialogue(DialogueModel dialogue, CharacterModel character)
     {
-        messageText.text = dialogue.message;
+        _messageText.text = dialogue.message;
+        _name.text = character.name;
+        if(_modelParent.childCount != 0)
+        {
+            Destroy(_modelParent.GetChild(0).gameObject);
+        }
+        GameObject model = Instantiate(character.prefab, _modelParent);
+        model.layer = layerId;
+
     }
 
     public void CheckInput()
     {
-        if(Input.anyKeyDown && viewGO.activeSelf)
+        if(Input.anyKeyDown && _viewGO.activeSelf)
         {
             Next();
         }
     }
 
-    private void Update()
-    {
-        CheckInput();
-    }
+   
 }

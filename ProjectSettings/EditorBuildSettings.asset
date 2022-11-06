@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartResume.unity
+    guid: 4dd9ec98fc4ef46f5bcf1b23acf37c08
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 5dc6c10055ca84b2985be96e9ce2e99d
   m_configObjects: {}
