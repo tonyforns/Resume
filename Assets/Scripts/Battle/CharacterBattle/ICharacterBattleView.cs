@@ -6,9 +6,9 @@ public interface ICharacterBattleView
     void Hited(int damage);
     void Faint();
     void StartBattle(CharacterModel model);
-    void SetCharacter(string name, int lvl, int maxLife, GameObject prefab, List<string> abilities);
+    void SetCharacter(string name, int lvl, int maxLife, GameObject prefab);
     void UpdateLife(int newValue);
     void SetDebuff();
     void EnableTurn();
-    void CastSkill(SkillModel skill);
+    Transform GetTransform();
 }

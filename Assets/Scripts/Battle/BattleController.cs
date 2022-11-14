@@ -8,9 +8,6 @@ public class BattleController
     private ICharacterBattleView _enemy;
     private ICharacterBattleView _characterOnTurn;
 
-    [SerializeField] public CharacterModel player;
-    [SerializeField] public CharacterModel enemy;
-
     public BattleController(IBattleView battleView, ICharacterBattleView playerView, ICharacterBattleView enemyView)
     {
         _view = battleView;
@@ -20,8 +17,10 @@ public class BattleController
 
     public void StartBattle(CharacterModel playerModel, CharacterModel enemyModel)
     {
-        _player.StartBattle(playerModel);
-        _enemy.StartBattle(enemyModel);
+        PlayerBattleView player = _player as PlayerBattleView;
+        player.StartBattle(playerModel);
+        EnemyBattleView enemy = _enemy as EnemyBattleView;
+        enemy.StartBattle(enemyModel);
         _characterOnTurn = playerModel.stats.dexterity > enemyModel.stats.dexterity ? _player : _enemy;
         _characterOnTurn.EnableTurn();
     }

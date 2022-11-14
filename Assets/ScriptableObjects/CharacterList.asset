@@ -17,15 +17,51 @@ MonoBehaviour:
     prefab: {fileID: 6686297106240367517, guid: 560eac2ae4c18488d91f547bad3f7526, type: 3}
     name: Capsula
     description: Una Capsula
+    stats:
+      lvl: 20
+      life: 100
+      strenght: 10
+      intelligent: 5
+      wisdom: 3
+      charisma: 2
+      dexterity: 10
+    skills: {fileID: 11400000, guid: 8285c56ced3b54aec85d540c3c3cb197, type: 2}
   - id: 2
     prefab: {fileID: 821872814865174394, guid: 31a9c9a883ace4739b76ec3110db5481, type: 3}
     name: Cube
     description: Un Cube
+    stats:
+      lvl: 99
+      life: 666
+      strenght: 13
+      intelligent: 14
+      wisdom: 15
+      charisma: 16
+      dexterity: 1
+    skills: {fileID: 11400000, guid: 8285c56ced3b54aec85d540c3c3cb197, type: 2}
   - id: 3
     prefab: {fileID: 1386572807127280679, guid: 921a3540a44694de9abf22328b3569a4, type: 3}
     name: Cykunder
     description: Un Cylinder
+    stats:
+      lvl: 0
+      life: 0
+      strenght: 0
+      intelligent: 0
+      wisdom: 0
+      charisma: 0
+      dexterity: 0
+    skills: {fileID: 0}
   - id: 4
     prefab: {fileID: 7966177282719215636, guid: 2799456b644f140f487ca736f0aa2886, type: 3}
     name: Sphere
     description: Un Sphere
+    stats:
+      lvl: 0
+      life: 0
+      strenght: 0
+      intelligent: 0
+      wisdom: 0
+      charisma: 0
+      dexterity: 0
+    skills: {fileID: 0}

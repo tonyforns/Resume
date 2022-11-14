@@ -5,9 +5,9 @@ using System.Linq;
 internal class BattleSkillBarController
 {
     private IBattleSkillBarView _view;
-    private Action<SkillModel> _OnSkillSelected;
+    private Action<string> _OnSkillSelected;
     private SkillList _skills;
-    private Dictionary<string, SkillModel> _skillsDictionary;
+    private Dictionary<string, SkillModel> _skillsDictionary = new Dictionary<string, SkillModel>();
 
     public BattleSkillBarController(IBattleSkillBarView view)
     {
@@ -17,6 +17,7 @@ internal class BattleSkillBarController
     public void SetSkills(SkillList skills)
     {
         _skills = skills;
+        GenerateDictionary();
         _view.UpdateSkills(_skillsDictionary.Keys.ToList());
     }
 
@@ -31,12 +32,10 @@ internal class BattleSkillBarController
 
     public void SkillSelected(string skillName)
     {
-        SkillModel skill;
-        _skillsDictionary.TryGetValue(skillName, out skill);
-        _OnSkillSelected.Invoke(skill);
+        _OnSkillSelected.Invoke(skillName);
     }
 
-    internal void SetOnSelectedSkillEvent(Action<SkillModel> action)
+    internal void SetOnSelectedSkillEvent(Action<string> action)
     {
         _OnSkillSelected = action;
     }

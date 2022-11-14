@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public abstract class SkillModel
+[Serializable]
+public class SkillModel
 {
     public string id;
     public string name;

@@ -16,7 +16,7 @@ public class BattleSkillBarView : MonoBehaviour, IBattleSkillBarView
 
     public void UpdateSkills(List<string> skills)
     {
-        for (int i = 0; i < _skillsName.Count - 1; i++)
+        for (int i = 0; i < _skillsName.Count; i++)
         {
             _skillsName[i].text = skills[i];
         }
@@ -25,16 +25,21 @@ public class BattleSkillBarView : MonoBehaviour, IBattleSkillBarView
     public void SkillSelected(TextMeshProUGUI skillName)
     {
         _controller.SkillSelected(skillName.text);
-        _skillSelectionBlock.SetActive(false);
+        EnableSkills(false);
     }
 
-    public void EnableSkills()
+    public void EnableSkills(bool enable)
     {
-        _skillSelectionBlock.SetActive(true);
+        _skillSelectionBlock.SetActive(!enable);
     }
 
-    public void SetOnSelectedSkillEvent(Action<SkillModel> action)
+    public void SetOnSelectedSkillEvent(Action<string> action)
     {
         _controller.SetOnSelectedSkillEvent(action);
+    }
+
+    public void SetSkills(SkillList skills)
+    {
+        _controller.SetSkills(skills);
     }
 }

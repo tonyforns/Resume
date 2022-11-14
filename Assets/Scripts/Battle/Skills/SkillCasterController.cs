@@ -5,8 +5,8 @@ internal class SkillCasterController
 {
     private ISkillCasterView _view;
     private SkillList _skills;
-    private Dictionary<string, SkillModel> _skillsDictionary;
-    private Dictionary<string, ISkillView> _skillsInstance;
+    private Dictionary<string, SkillModel> _skillsDictionary = new Dictionary<string, SkillModel>();
+    private Dictionary<string, ISkillView> _skillsInstance = new Dictionary<string, ISkillView>();
     public SkillCasterController(ISkillCasterView view)
     {
         _view = view;

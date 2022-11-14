@@ -19,4 +19,9 @@ public class SkillCasterView : MonoBehaviour, ISkillCasterView
     {
         return Instantiate(model.prefab, transform).GetComponent<SkillView>();
     }
+
+    public void LoadSkills(SkillList skillList)
+    {
+        _controller.LoadSkills(skillList);
+    }
 }

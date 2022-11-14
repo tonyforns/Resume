@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public abstract class SkillView : MonoBehaviour , ISkillView
@@ -10,7 +9,7 @@ public abstract class SkillView : MonoBehaviour , ISkillView
 
     public void SetActive(bool isActive)
     {
-        SetActive(isActive);
+        gameObject.SetActive(isActive);
     }
 
     public void SetPosition(Transform position)
@@ -21,7 +20,6 @@ public abstract class SkillView : MonoBehaviour , ISkillView
     public void OnCollisionEnter(Collision collision)
     {
         ICharacterBattleView character = collision.gameObject.GetComponent<ICharacterBattleView>();
-        Debug.Log(_controller);
         _controller.CharacterHit(character);
     }
 }

@@ -6,7 +6,7 @@ public class CharacterSelectionSceneView : Singleton<CharacterSelectionSceneView
     [SerializeField] private int allowCharacterId = 0;
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _description;
-    [SerializeField] private Transform _modelParent;
+    [SerializeField] private UnityEngine.Transform _modelParent;
     [SerializeField] private GameObject _stats;
 
     new void Awake()

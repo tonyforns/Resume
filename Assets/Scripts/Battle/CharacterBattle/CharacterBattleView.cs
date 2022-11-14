@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 
-public class CharacterBattleView : MonoBehaviour, ICharacterBattleView
+[RequireComponent(typeof(SkillCasterView))]
+public abstract class CharacterBattleView : MonoBehaviour, ICharacterBattleView
 {
     internal CharacterBattleController _controller;
     [SerializeField] private TextMeshProUGUI _name;
@@ -11,23 +12,25 @@ public class CharacterBattleView : MonoBehaviour, ICharacterBattleView
     [SerializeField] private TextMeshProUGUI _life;
     [SerializeField] private Slider _lifeSlider;
     [SerializeField] internal Transform _enemyTransform;
-    [SerializeField] 
-    private int _maxLife = 100;
+    [SerializeField] internal SkillCasterView _skillCaster;
+    private float _maxLife = 100;
     private GameObject _model;
 
     private void Awake()
     {
-        _controller = new CharacterBattleController(this, _enemyTransform);
+        _controller = new CharacterBattleController(this, _enemyTransform, _skillCaster);
     }
 
-    public void SetCharacter(string name, int lvl, int maxLife, GameObject prefab, List<string> abilities)
+    public void SetCharacter(string name, int lvl, int maxLife, GameObject prefab)
     {
+        transform.LookAt(_enemyTransform);
         _name.text = name;
         SetLvl(lvl);
         _maxLife = maxLife;
         SetLife(maxLife);
         if (_model) Destroy(_model);
         _model = Instantiate(prefab, transform);
+        _model.GetComponent<Collider>().enabled = false;
     }
 
     private void SetLvl(int lvl)
@@ -47,7 +50,7 @@ public class CharacterBattleView : MonoBehaviour, ICharacterBattleView
         _controller.OnLifeUpdated();
     }
 
-    public void StartBattle(CharacterModel model)
+    public virtual void StartBattle(CharacterModel model)
     {
         _controller.StartBattle(model);
     }
@@ -73,14 +76,10 @@ public class CharacterBattleView : MonoBehaviour, ICharacterBattleView
         _controller.OnFainted();
     }
 
-    public void EnableTurn()
+    public Transform GetTransform()
     {
-        throw new System.NotImplementedException();
+        return gameObject.transform;
     }
 
-    public void CastSkill(SkillModel skill)
-    {
-        GameObject skillGO = Instantiate(skill.prefab, transform);
-        _controller.CastSkill(skillGO.GetComponent<SkillView>());
-    }
+    public abstract void EnableTurn();
 }

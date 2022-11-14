@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ab28847450d42da98ed8f7ffc39e52, type: 3}
+  m_Name: SkillList
+  m_EditorClassIdentifier: 
+  Items:
+  - id: 1
+    name: Aqua
+    prefab: {fileID: 1333878619757883659, guid: 999e8d8137f5a46d4a7cdd3ad3b06d3b, type: 3}
+  - id: 2
+    name: Fire
+    prefab: {fileID: 1333878619757883659, guid: 999e8d8137f5a46d4a7cdd3ad3b06d3b, type: 3}
+  - id: 3
+    name: Wind
+    prefab: {fileID: 1333878619757883659, guid: 999e8d8137f5a46d4a7cdd3ad3b06d3b, type: 3}
+  - id: 4
+    name: Earth
+    prefab: {fileID: 1333878619757883659, guid: 999e8d8137f5a46d4a7cdd3ad3b06d3b, type: 3}
