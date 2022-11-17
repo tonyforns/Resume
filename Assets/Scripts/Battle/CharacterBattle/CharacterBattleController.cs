@@ -28,12 +28,14 @@ public class CharacterBattleController
 
     internal void CastSkill(string skillName)
     {
+        BattleView.Instance.CharacterCastSkill(_model.name, skillName);
         _skillCaster.CastSkill(skillName, _model.stats, _view.GetTransform());
     }
 
     public void GetHit(int trueDamage)
     {
         int damage = ReduceDamage(trueDamage);
+        BattleView.Instance.CharacterTakenBySkill(_model.name, damage.ToString());
         _currentLife = (_currentLife - damage) <= 0 ? 0 : _currentLife - damage;
         _view.UpdateLife(_currentLife);
     }

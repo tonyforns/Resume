@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class BattleView : Singleton<BattleView>, IBattleView
 {
@@ -6,6 +7,7 @@ public class BattleView : Singleton<BattleView>, IBattleView
     [SerializeField] private CharacterBattleView _playerView;
     [SerializeField] private CharacterBattleView _enemyView;
     [SerializeField] private IBattleSkillBarView _skillBar;
+    [SerializeField] private TextMeshProUGUI _battleMessage;
 
     [SerializeField] public CharacterList characterList;
 
@@ -32,8 +34,23 @@ public class BattleView : Singleton<BattleView>, IBattleView
         _controller.SwitchTurn();
     }
 
-    public void AbilitySelected(SkillModel skill)
+    public void CharacterCastSkill(string characterName, string skillName)
     {
-       // _controller
+        _controller.CharacterCastSkill(characterName, skillName);
+    }
+
+    public void SetBattleMessage(string message)
+    {
+        _battleMessage.text = message;
+    }
+
+    public void CharacterTakenBySkill(string characterName, string damage)
+    {
+        _controller.CharacterTakenBySkill(characterName, damage);
+    }
+
+    public void CharacterTurnStart(string characterName)
+    {
+        _controller.CharacterTurnStart(characterName);
     }
 }

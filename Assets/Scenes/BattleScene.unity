@@ -4933,6 +4933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerView: {fileID: 1086580608}
   _enemyView: {fileID: 518645875}
+  _battleMessage: {fileID: 1756579071}
   characterList: {fileID: 11400000, guid: 64ac01e8e85c94f52b0b3f448db93c8d, type: 2}
 --- !u!4 &2140992432
 Transform:

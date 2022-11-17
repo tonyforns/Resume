@@ -30,4 +30,19 @@ public class BattleController
         _characterOnTurn = _characterOnTurn == _player ? _enemy : _player;
         _characterOnTurn.EnableTurn();
     }
+
+    internal void CharacterTakenBySkill(string characterName, string damage)
+    {
+        _view.SetBattleMessage($"{characterName} was hited and get {damage} life points of damage!");
+    }
+
+    internal void CharacterCastSkill(string characterName, string skillName)
+    {
+        _view.SetBattleMessage($"{characterName} use {skillName}!");
+    }
+
+    internal void CharacterTurnStart(string characterName)
+    {
+        _view.SetBattleMessage($"Is {characterName} turn to attack!");
+    }
 }
