@@ -7,10 +7,10 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
 {
     private DialogueController _controller;
     [SerializeField] private GameObject _viewGO;
-    [SerializeField] private int layerId = 6;
+    [SerializeField] private int layerId = 0;
     [Header("Character")]
     [SerializeField] private TextMeshProUGUI _name;
-    [SerializeField] private UnityEngine.Transform _modelParent;
+    [SerializeField] private Transform _modelParent;
     [Header("Dialogue")]
     [SerializeField] private TextMeshProUGUI _messageText;
     [SerializeField] private Button _nextBttn;

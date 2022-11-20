@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - id: 1
-    prefab: {fileID: 6686297106240367517, guid: 560eac2ae4c18488d91f547bad3f7526, type: 3}
+    prefab: {fileID: 1953271650171834, guid: 2fd02e6666046417096b3672406ff620, type: 3}
     name: Capsula
     description: Una Capsula
     stats:
@@ -27,7 +27,7 @@ MonoBehaviour:
       dexterity: 10
     skills: {fileID: 11400000, guid: 8285c56ced3b54aec85d540c3c3cb197, type: 2}
   - id: 2
-    prefab: {fileID: 821872814865174394, guid: 31a9c9a883ace4739b76ec3110db5481, type: 3}
+    prefab: {fileID: 6705402075998324148, guid: ff80ad74562b449fdaa49ccfbc972e1c, type: 3}
     name: Cube
     description: Un Cube
     stats:
@@ -40,7 +40,7 @@ MonoBehaviour:
       dexterity: 1
     skills: {fileID: 11400000, guid: 8285c56ced3b54aec85d540c3c3cb197, type: 2}
   - id: 3
-    prefab: {fileID: 1386572807127280679, guid: 921a3540a44694de9abf22328b3569a4, type: 3}
+    prefab: {fileID: 6173172085731050060, guid: ce8b90dacdef044fd909279fee4a1a26, type: 3}
     name: Cykunder
     description: Un Cylinder
     stats:
@@ -53,7 +53,7 @@ MonoBehaviour:
       dexterity: 0
     skills: {fileID: 0}
   - id: 4
-    prefab: {fileID: 7966177282719215636, guid: 2799456b644f140f487ca736f0aa2886, type: 3}
+    prefab: {fileID: 4281683080859636826, guid: 996986bc842514028b3c3a302d008ae1, type: 3}
     name: Sphere
     description: Un Sphere
     stats:
