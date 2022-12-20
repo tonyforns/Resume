@@ -46,7 +46,6 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
 
     public void Next()
     {
-        Debug.Log("Next Dialogue");
         _controller.Next();
     }
 

@@ -17,6 +17,6 @@
     public void EndScene()
     {
         DialogueView.Instance.OnDialogueFinish -= EndScene;
-        GameManager.Instance.LoadNextScene();
+        GameManager.Instance.LoadNextView();
     }
 }

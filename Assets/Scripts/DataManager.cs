@@ -31,6 +31,18 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
+    internal string GetNextView(string name)
+    {
+        Debug.Log(name);
+        switch (name)
+        {
+            case "StartResume":
+                return "CharacterSelection";
+            default:
+                return "StartResume";
+        }
+    }
+
     public string GetNextScene(string name)
     {
         switch (name)
