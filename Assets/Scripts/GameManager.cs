@@ -37,6 +37,10 @@ public class GameManager : Singleton<GameManager>
         string nextScene = DataManager.Instance.GetNextView(currentViewName);
         viewsDictionary.TryGetValue(nextScene, out currentView);
         currentView.SetActive(true);
+    }
 
+    public void QuitResume()
+    {
+        Application.Quit();
     }
 }

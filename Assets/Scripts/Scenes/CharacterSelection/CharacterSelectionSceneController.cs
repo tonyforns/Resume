@@ -27,7 +27,7 @@ public class CharacterSelectionSceneController : BaseSceneController
         DialogueView.Instance.Hide();
         if (_allowCharacterId == CurrentCharacterId)
         {
-            GameManager.Instance.LoadNextScene();
+            GameManager.Instance.LoadNextView();
         }
     }
 
@@ -35,7 +35,6 @@ public class CharacterSelectionSceneController : BaseSceneController
     {
         int characterDialogue = 0;
         characterDialogues.TryGetValue(CurrentCharacterId, out characterDialogue);
-        Debug.Log(characterDialogue);
         DialogueView.Instance.Show(characterDialogue);
     }
 

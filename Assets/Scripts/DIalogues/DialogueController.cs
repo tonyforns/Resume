@@ -16,7 +16,6 @@ public class DialogueController
     {
         _currentDialogue = DataManager.Instance.GetDialogue(id);
         _view.Show(_currentDialogue, GetDialogueCharacter());
-
     }
 
     public void Next()

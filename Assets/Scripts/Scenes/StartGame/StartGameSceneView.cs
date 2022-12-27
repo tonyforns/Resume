@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class StartGameSceneView : Singleton<StartGameSceneView>, IStartGameSceneView
+﻿public class StartGameSceneView : Singleton<StartGameSceneView>, IStartGameSceneView
 {
     private StartGameSceneController _controller;
 

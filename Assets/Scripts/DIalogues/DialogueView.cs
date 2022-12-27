@@ -14,6 +14,7 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     [Header("Dialogue")]
     [SerializeField] private TextMeshProUGUI _messageText;
     [SerializeField] private Button _nextBttn;
+    private int _currentPlayerId;
     
     public Action OnDialogueFinish;
 
@@ -21,6 +22,10 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     {
         base.Awake();
         _controller = new DialogueController(this);
+    }
+    public bool IsDialogueActive()
+    {
+        return _viewGO.activeSelf;
     }
 
     private void Update()
@@ -58,7 +63,9 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     {
         _messageText.text = dialogue.message;
         _name.text = character.name;
-        if(_modelParent.childCount != 0)
+        if (_currentPlayerId == dialogue.idCharacter) return;
+        _currentPlayerId = dialogue.idCharacter;
+        if (_modelParent.childCount != 0)
         {
             Destroy(_modelParent.GetChild(0).gameObject);
         }

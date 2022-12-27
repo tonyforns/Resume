@@ -21,6 +21,7 @@ public partial class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DialogueView.Instance.IsDialogueActive()) return;
         HandleRotation();
         HandleMovement();
         HandleAttack();
@@ -35,7 +36,7 @@ public partial class PlayerController : MonoBehaviour
 
     private void HandleAttack()
     {
-        animator.SetBool("Attack", Input.GetButtonDown("Fire1")); ;
+        animator.SetBool("Attack", Input.GetKeyDown("space")); ;
     }
     private void HandleRotation()
     {
