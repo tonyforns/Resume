@@ -16,6 +16,7 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     [SerializeField] private Button _nextBttn;
     private int _currentPlayerId;
     
+    public Action OnDialogueStart;
     public Action OnDialogueFinish;
 
     new void Awake()
@@ -26,6 +27,11 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     public bool IsDialogueActive()
     {
         return _viewGO.activeSelf;
+    }
+
+    public void DialogueStart()
+    {
+        OnDialogueStart?.Invoke();
     }
 
     private void Update()
@@ -61,6 +67,7 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
 
     public void UpdateDialogue(DialogueModel dialogue, CharacterModel character)
     {
+        SoundManager.Instance.PlaySound(GameSounds.CharacterDialogue);
         _messageText.text = dialogue.message;
         _name.text = character.name;
         if (_currentPlayerId == dialogue.idCharacter) return;

@@ -33,21 +33,21 @@ public class DataManager : Singleton<DataManager>
                     new DialogueModel(111, "My outstanding knowledges are the following!", 8, null)
                     )))))))))));
             case 1:
-                return new DialogueModel(1, "Unity3D Intermediate", 1, new DialogueModel(3, "Development of 3 slot games from prototyping, art design, mechanics, resource optimization and publication. Aymara, Aliens & Fruits and Aymara Casino.", 3, new DialogueModel(3, "Knowledge in Particles System", 3, null)));
+                return new DialogueModel(1, "Unity3D Intermediate", 1, new DialogueModel(1, "Development of 3 slot games from prototyping, art design, mechanics, resource optimization and publication. Aymara, Aliens & Fruits and Aymara Casino.", 1, new DialogueModel(3, "Knowledge in Particles System", 1, null)));
             case 2:
-                return new DialogueModel(2, "C# Intermediate", 2, new DialogueModel(2, "C# Applied to development with Unity", 1, null));
+                return new DialogueModel(2, "C# Intermediate", 2, new DialogueModel(2, "C# Applied to development with Unity", 2, null));
             case 3:
-                return new DialogueModel(4, "Phaser 2/3 Intermediate", 3,  new DialogueModel(2, "Development of 4 Slots games from prototyping, art design, mechanics, resource optimization and publication.", 4, new DialogueModel(2, "Games: Aymara, Aliens & Fruits, Dragon's Chest and Magic Relics", 4, null)));
+                return new DialogueModel(3, "Phaser 2/3 Intermediate", 3,  new DialogueModel(3, "Development of 4 Slots games from prototyping, art design, mechanics, resource optimization and publication.", 3, new DialogueModel(3, "Games: Aymara, Aliens & Fruits, Dragon's Chest and Magic Relics", 3, null)));
             case 4:
-                return new DialogueModel(5, "JavaScript Intermediate", 4, new DialogueModel(2, "JavaScript applied to development with Phaser 2 and Phaser 3", 5, null));
+                return new DialogueModel(4, "JavaScript Intermediate", 4, new DialogueModel(4, "JavaScript applied to development with Phaser 2 and Phaser 3", 4, null));
             case 5:
                 return new DialogueModel(5, "MySQL Basic", 5, new DialogueModel(2, "Knowledge of relational database, views and store procedures", 5, null));
             case 6:
-                return new DialogueModel(6, "Scrum Intermediate", 6, new DialogueModel(2, "Work with Agile Methodology for 1 year", 5, null));
+                return new DialogueModel(6, "Scrum Intermediate", 6, new DialogueModel(2, "Work with Agile Methodology for 1 year", 6, null));
             case 7:
-                return new DialogueModel(7, "Git Intermediate", 7, new DialogueModel(2, "Development of all projects using the versioning tool for project management ", 5, null));
+                return new DialogueModel(7, "Git Intermediate", 7, new DialogueModel(2, "Development of all projects using the versioning tool for project management ", 7, null));
             case 8:
-                return new DialogueModel(7, "Just me", 8, new DialogueModel(2, "A simple developer with an aspiration to be able to be part of the creation of a virtual world of adventures. Lover of challenges and predisposed to learn.", 5, null));
+                return new DialogueModel(7, "Just me", 8, new DialogueModel(2, "A simple developer with an aspiration to be able to be part of the creation of a virtual world of adventures. Lover of challenges and predisposed to learn.", 8, null));
             default:
                 return new DialogueModel(5, "default", 5, null);
         }

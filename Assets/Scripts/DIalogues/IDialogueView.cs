@@ -6,4 +6,5 @@
     void Next();
     void UpdateDialogue(DialogueModel dialogue, CharacterModel character);
     void DialogueFinish();
+    void DialogueStart();
 }
