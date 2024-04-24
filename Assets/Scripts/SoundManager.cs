@@ -24,8 +24,6 @@ public partial class SoundManager : Singleton<SoundManager>
 
     }
 
-    
-
     public AudioSource AddAudioSource()
     {
         return gameObject.AddComponent<AudioSource>();
@@ -43,9 +41,14 @@ public partial class SoundManager : Singleton<SoundManager>
             _audioSourceQueue.Enqueue(_audioSourceQueue.Dequeue());
         }
         AudioClip audioClip;
-        _soundDictionary.TryGetValue(sound, out audioClip);
-        audioSource.clip = audioClip;
-        audioSource.Play();
+        if(_soundDictionary.TryGetValue(sound, out audioClip))
+        {
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        } else
+        {
+            Debug.LogError($"Audio clip: {sound.ToString()} didn't find");
+        }
     }
 
     public void PlayCommonButton()

@@ -12,10 +12,11 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private Transform _modelParent;
     [Header("Dialogue")]
-    [SerializeField] private TextMeshProUGUI _messageText;
     [SerializeField] private Button _nextBttn;
+    [SerializeField] private DialogueMessageTextComponent _dialogueMessageTextComponent;
+
     private int _currentPlayerId;
-    
+
     public Action OnDialogueStart;
     public Action OnDialogueFinish;
 
@@ -51,8 +52,8 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
 
     public void Show(DialogueModel dialogue, CharacterModel character)
     {
-        UpdateDialogue(dialogue, character);
         _viewGO.SetActive(true);
+        UpdateDialogue(dialogue, character);
     }
 
     public void Next()
@@ -68,8 +69,11 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
     public void UpdateDialogue(DialogueModel dialogue, CharacterModel character)
     {
         SoundManager.Instance.PlaySound(GameSounds.CharacterDialogue);
-        _messageText.text = dialogue.message;
+
+        _dialogueMessageTextComponent.Show(dialogue.message);
+
         _name.text = character.name;
+
         if (_currentPlayerId == dialogue.idCharacter) return;
         _currentPlayerId = dialogue.idCharacter;
         if (_modelParent.childCount != 0)
@@ -80,12 +84,17 @@ public class DialogueView : Singleton<DialogueView>, IDialogueView
         model.layer = layerId;
 
     }
-
+  
     public void CheckInput()
     {
         if(Input.anyKeyDown && _viewGO.activeSelf)
         {
-            Next();
+            if (_dialogueMessageTextComponent.IsShowingMessage())
+            {
+                _dialogueMessageTextComponent.Complete();
+            } else {
+                Next();
+            }
         }
     }
 
