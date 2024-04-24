@@ -10,7 +10,9 @@ public partial class PlayerController
     [SerializeField] private float speed = 3f;
     [SerializeField] private CharacterController charController;
     [SerializeField] private float _attackCountDown = ATTACK_COUNT_DOWN;
-    [SerializeField] private const float ATTACK_COUNT_DOWN = 1.5f;
+    [SerializeField] private const float ATTACK_COUNT_DOWN = 1.25f;
+    [SerializeField] private SkillCasterComponent _skillCaster;
+    [SerializeField] private SkillList _skillList;
 }
 public partial class PlayerController : MonoBehaviour
 {
@@ -66,8 +68,9 @@ public partial class PlayerController : MonoBehaviour
         if (Input.GetButtonUp("Fire1") && !IsAttacking())
         {
             _attackCountDown = 0;
-           SoundManager.Instance.PlayPlayerWeaponAttack();
-           animator.SetTrigger("Attack");
+            SoundManager.Instance.PlayPlayerWeaponAttack();
+            animator.SetTrigger("Attack");
+            _skillCaster.CastSkill();
         }
     }
 
@@ -77,8 +80,8 @@ public partial class PlayerController : MonoBehaviour
     }
     private void HandleRotation()
     {
+        if (IsAttacking()) return;
         float moveX = Input.GetAxis("Horizontal");
-        transform.Rotate(moveX * Vector3.up);
-
+        transform.Rotate(moveX * Vector3.up * 0.5f);
     }
 }

@@ -105,7 +105,7 @@ MonoBehaviour:
       dexterity: 7
     skills: {fileID: 0}
   - id: 8
-    prefab: {fileID: 1248815240492774, guid: 3495d408387f3459ba272dbc39be1230, type: 3}
+    prefab: {fileID: 1248815240492774, guid: 249edc68b952da048b0eb57b00677656, type: 3}
     name: Tony
     description: 'Will this space be big enough to describe me? '
     stats:

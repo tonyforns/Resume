@@ -18,7 +18,9 @@ public class GameManager : Singleton<GameManager>
         foreach (Transform view in viewsParent.transform) 
         {
             viewsDictionary.Add(view.gameObject.name, view.gameObject);
+            view.gameObject.SetActive(false);
         }
+        viewsParent.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public void LoadNextScene()
@@ -37,10 +39,19 @@ public class GameManager : Singleton<GameManager>
         string nextScene = DataManager.Instance.GetNextView(currentViewName);
         viewsDictionary.TryGetValue(nextScene, out currentView);
         currentView.SetActive(true);
+        currentViewName = currentView.name;
     }
 
     public void QuitResume()
     {
         Application.Quit();
+    }
+
+    public void Update()
+    {
+        if(Input.GetKeyUp(KeyCode.Escape))
+        {
+            QuitResume();
+        }
     }
 }

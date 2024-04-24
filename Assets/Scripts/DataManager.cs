@@ -62,7 +62,7 @@ public class DataManager : Singleton<DataManager>
             case "StartResume":
                 return "CharacterSelection";
             case "CharacterSelection":
-                return "OutOfService";
+                return "WorldAdventure";
             default:
                 return "StartResume";
         }
